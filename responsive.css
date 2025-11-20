@@ -14,3 +14,9 @@
         text-align: center;
     }
 }
+@media screen and (max-width : 365px) {
+     .proposition_container span{
+        font-size: 15px;
+       
+    }
+}
