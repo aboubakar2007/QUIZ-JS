@@ -63,7 +63,10 @@ function affiche_question() {
     pro = list_question[i]['propositions'];
     text_question.textContent = q;
     if(i>=list_question.length-1){
-        q.textContent="";
+        text_propositions.forEach(function(text_proposition){
+            text_proposition.classList.add("sup")
+        })
+        text_question.classList.add("sup")
         texte_fin.textContent="quiz terminé votre score est de " + score +" sur 10";
         texte_fin.classList.add('even_h2')
     }
