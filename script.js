@@ -66,7 +66,9 @@ function affiche_question() {
         text_propositions.forEach(function(text_proposition){
             text_proposition.classList.add("sup")
         })
-        text_question.classList.add("sup")
+        text_question.textContent="quiz terminé avec succès";
+        text_question.style.fontSize="1.4em";
+        text_question.style.color ="rgba(221, 255, 0, 1)";
         texte_fin.textContent="quiz terminé votre score est de " + score +" sur 10";
         texte_fin.classList.add('even_h2')
     }
