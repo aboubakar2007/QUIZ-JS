@@ -1,8 +1,10 @@
 let text_question = document.getElementById("question");
 let text_propositions= document.querySelectorAll(".proposition_container span");
 let texte_fin = document.querySelector("h2");
+let bouton = document.getElementById("bouton")
 
-const list_question = [{
+const list_question = [
+    {
         question: "Quel est le plus grand océan du monde ?",
         propositions: ["Océan Atlantique", "Océan Indien", "Océan Pacifique", "Océan Arctique"],
         reponseVrai: 2
@@ -71,6 +73,9 @@ function affiche_question() {
         text_question.style.color ="rgba(221, 255, 0, 1)";
         texte_fin.textContent="quiz terminé votre score est de " + score +" sur 10";
         texte_fin.classList.add('even_h2')
+        bouton.classList.add("evenBout")
+        console.log(bouton);
+        
     }
     
     
