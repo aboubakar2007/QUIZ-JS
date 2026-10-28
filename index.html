@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUIZ</title>
     <link rel="shortcut icon" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
 </head>
 
 <body>
-    <div class="container">
+    <main class="container">
+        <header class="quiz_header">
+            <span class="quiz_titre">QUIZ</span>
+            <span id="compteur" class="quiz_compteur"></span>
+        </header>
+        <div class="progression"><div id="barre" class="progression_barre"></div></div>
+
         <h3 id="question"></h3>
 
         <div class="proposition_container">
-            <span><b>1-</b></span>
-            <span><b>2-</b></span>
-            <span><b>3-</b></span>
-            <span><b>4-</b></span>
+            <button type="button" class="proposition"><b>1</b><span></span></button>
+            <button type="button" class="proposition"><b>2</b><span></span></button>
+            <button type="button" class="proposition"><b>3</b><span></span></button>
+            <button type="button" class="proposition"><b>4</b><span></span></button>
         </div>
-        <a href="index.html" id="bouton"><button >voulez vous continuer</button></a>
+
         <h2></h2>
-    </div>
+        <a href="index.html" id="bouton" class="bouton">Rejouer</a>
+    </main>
     <script src="script.js"></script>
 </body>
 

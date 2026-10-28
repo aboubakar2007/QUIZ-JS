@@ -1,7 +1,9 @@
 let text_question = document.getElementById("question");
-let text_propositions= document.querySelectorAll(".proposition_container span");
+let text_propositions= document.querySelectorAll(".proposition");
 let texte_fin = document.querySelector("h2");
-let bouton = document.getElementById("bouton")
+let bouton = document.getElementById("bouton");
+let compteur = document.getElementById("compteur");
+let barre = document.getElementById("barre");
 
 const list_question = [
     {
@@ -61,34 +63,33 @@ let i = 0;
 let score =0;
 
 function affiche_question() {
-    q = list_question[i]['question'];
-    pro = list_question[i]['propositions'];
-    text_question.textContent = q;
-    if(i>=list_question.length-1){
+    barre.style.width = (i / list_question.length * 100) + "%";
+    if(i>=list_question.length){
         text_propositions.forEach(function(text_proposition){
             text_proposition.classList.add("sup")
         })
+        compteur.textContent = "Terminé";
         text_question.textContent="quiz terminé avec succès";
-        text_question.style.fontSize="1.4em";
         text_question.style.color ="rgba(221, 255, 0, 1)";
-        texte_fin.textContent="quiz terminé votre score est de " + score +" sur 10";
+        texte_fin.textContent="Votre score est de " + score +" sur " + list_question.length;
         texte_fin.classList.add('even_h2')
         bouton.classList.add("evenBout")
-        console.log(bouton);
-        
+        return;
     }
-    
-    
+
+    let q = list_question[i]['question'];
+    let pro = list_question[i]['propositions'];
+    text_question.textContent = q;
+    compteur.textContent = "Question " + (i + 1) + " / " + list_question.length;
+
     text_propositions.forEach(function(text_proposition,index){
-      text_proposition.innerHTML = "<b>" + (index + 1) + "-</b> " + pro[index];
+        text_proposition.querySelector("span").textContent = pro[index];
         if(index=== list_question[i]['reponseVrai']){
             text_proposition.dataset.reponse= "vrai"
         }else{
             text_proposition.dataset.reponse="faux";
         }
     });
-
-    
 }
 
 affiche_question()
@@ -98,8 +99,7 @@ text_propositions.forEach(function(text_proposition){
         if(text_proposition.dataset.reponse==="vrai"){
             score++
         }
-        
+
         affiche_question()
-        
     })
 })
